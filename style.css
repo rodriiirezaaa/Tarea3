@@ -1,0 +1,230 @@
+      /* CSS PRINCIPAL */
+
+        :root {
+            --color-primario: #2c3e50;
+            --color-acento: #2980b9;
+            --color-fondo: #f4f6f8;
+            --color-texto: #333333;
+            --fondo-tarjeta: #ffffff;
+            --radio-borde: 12px;
+            --sombra: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            background-color: var(--color-fondo);
+            color: var(--color-texto);
+        }
+
+        /* Cabecera */
+        header#cabecera-principal {
+            background: linear-gradient(135deg, var(--color-primario), #34495e);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+            box-shadow: var(--sombra);
+        }
+
+        .contenido-cabecera {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .datos-alumno {
+            display: inline-flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem 2.5rem;
+            border-radius: var(--radio-borde);
+        }
+
+        .dato-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .etiqueta-dato {
+            font-size: 0.75rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Navegación */
+        nav {
+            background-color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            padding: 1rem;
+        }
+
+        nav ul {
+            max-width: 1000px;
+            margin: 0 auto;
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--color-primario);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        nav a:hover {
+            background-color: var(--color-acento);
+            color: white;
+        }
+
+        /* Principal */
+        main {
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Artículos (Actividades) - SIN TARJETA */
+        article {
+            background-color: transparent; /* Sin fondo */
+            border: none; /* Sin borde */
+            box-shadow: none; /* Sin sombra */
+            border-radius: 0;
+            margin-bottom: 3rem; /* Más espacio entre actividades */
+            padding: 1rem 0; /* Padding vertical solo */
+            scroll-margin-top: 100px;
+            border-bottom: 1px solid #e2e8f0; /* Línea sutil de separación */
+        }
+
+        article h2 {
+            color: var(--color-primario);
+            /* Borde más grueso para destacar el título ya que no hay tarjeta */
+            border-left: 5px solid var(--color-acento); 
+            padding-left: 1rem;
+            margin-bottom: 1.5rem;
+            border-bottom: none;
+        }
+
+        /* Estilos generales para el contenido plano */
+        article h3 {
+            font-size: 1rem;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        article h4 {
+            font-size: 0.9rem;
+            color: var(--color-primario);
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        article p {
+            margin-bottom: 1rem;
+        }
+
+        /* Estilo para el logo en Actividad 5 */
+        .logo-imagen {
+            max-width: 150px;
+            height: auto;
+            display: block;
+            margin: 1rem 0;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            background: white;
+        }
+
+        /* === ESTILOS ESPECÍFICOS PARA LA ACTIVIDAD 1 y 5 (GALERÍA) === */
+        /* MANTENEMOS ESTILO DE TARJETAS AQUÍ */
+        .galeria-imagenes, #actividad5 .contenedor-logos {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .tarjeta-imagen {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .tarjeta-imagen:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .tarjeta-imagen img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .tarjeta-imagen.ancho-completo {
+            grid-column: 1 / -1;
+        }
+        .tarjeta-imagen.ancho-completo img {
+            height: auto;
+            max-height: 400px;
+        }
+
+        .info-imagen {
+            padding: 0.8rem;
+            text-align: center;
+        }
+
+        .nombre-archivo {
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: block;
+        }
+
+        .etiqueta-archivo {
+            display: inline-block;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 12px;
+            background-color: #e2e8f0;
+            margin-top: 5px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem;
+            background-color: var(--color-primario);
+            color: #cbd5e0;
+            margin-top: 4rem;
+        }
